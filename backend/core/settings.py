@@ -117,4 +117,3 @@ CACHES = {
         'TIMEOUT': 5,
     }
 }
-
