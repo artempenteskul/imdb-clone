@@ -23,3 +23,7 @@ services:
     container_name: postgres_db
     env_file:
       - ./backend/.env.db
+
+
+volumes:
+  postgres_data:
