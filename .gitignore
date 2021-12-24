@@ -4,7 +4,7 @@
 *.pyc
 __pycache__/
 *.sqlite3
-media/
+backend/media/
 static/
 staticfiles/
 
