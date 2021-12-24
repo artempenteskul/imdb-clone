@@ -15,7 +15,11 @@
             </li>
         {% endfor %}
     </ul>
-    <p>Directed by <a href="{% url 'movie:person-detail' object.director.id %}">{{ object.director }}</a></p>
+    {% if object.director.id %}
+        <p>Directed by <a href="{% url 'movie:person-detail' object.director.id %}">{{ object.director }}</a></p>
+    {% else %}
+        <p>No info about the director</p>
+    {% endif %}
 {% endblock %}
 
 {% block sidebar %}
