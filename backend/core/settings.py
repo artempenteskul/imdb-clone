@@ -1,4 +1,5 @@
 import os
+import socket
 
 from pathlib import Path
 
@@ -97,6 +98,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -106,9 +111,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_VIEW = 'movie:movie-list'
 LOGIN_REDIRECT_URL = 'user:login'
 
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
+INTERNAL_IPS = os.getenv('DJANGO_INTERNAL_IPS').split(' ')
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
+
 
 CACHES = {
     'default': {
