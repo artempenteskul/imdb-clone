@@ -19,11 +19,11 @@ services:
   postgres_db:
     image: postgres:13.0-alpine
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data_imdb:/var/lib/postgresql/data/
     container_name: postgres_db
     env_file:
       - ./backend/.env.db
 
 
 volumes:
-  postgres_data:
+  postgres_data_imdb:

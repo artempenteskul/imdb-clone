@@ -38,6 +38,7 @@ class MovieDetail(DetailView):
 
 
 class PersonDetail(DetailView):
+    model = Person
     queryset = Person.objects.all_with_prefetch_movies()
 
 

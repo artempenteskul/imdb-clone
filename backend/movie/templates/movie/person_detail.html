@@ -9,9 +9,9 @@
     <h1>{{ object }}</h1>
     <h2>Actor</h2>
     <ul>
-        {% for role in object.role.set.all %}
+        {% for role in object.role_set.all %}
             <li>
-                <a href="{% url 'movie:movie-detail' role.movie.id %}">{{ role.movie }}</a>:{{ role.name }}
+                <a href="{% url 'movie:movie-detail' role.movie.id %}">{{ role.movie }}</a> ({{ role.name }})
             </li>
         {% endfor %}
     </ul>
@@ -27,7 +27,7 @@
     <ul>
         {% for movie in object.directed.all %}
             <li>
-                <a href="{% url 'movie:movie-detail' movie.id %}"></a>
+                <a href="{% url 'movie:movie-detail' movie.id %}">{{ movie }}</a>
             </li>
         {% endfor %}
     </ul>
