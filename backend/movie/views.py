@@ -1,11 +1,15 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, TemplateView
 from django.urls import reverse
 
 from .models import Movie, Person, Vote
 from .forms import VoteForm, MovieImageForm
+
+
+class HomePage(TemplateView):
+    template_name = 'movie/home.html'
 
 
 class MovieList(ListView):
