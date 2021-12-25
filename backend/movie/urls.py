@@ -6,6 +6,8 @@ from . import views
 app_name = 'movie'
 
 urlpatterns = [
+    path('', views.HomePage.as_view(), name='home'),
+
     path('movies/', views.MovieList.as_view(), name='movie-list'),
     path('movies/top/', views.TopMovies.as_view(), name='top-movies'),
     path('movie/<int:pk>/', views.MovieDetail.as_view(), name='movie-detail'),

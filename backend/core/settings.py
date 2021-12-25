@@ -13,6 +13,10 @@ ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(' ')
 
 
 INSTALLED_APPS = [
+    # Local
+    'movie',
+    'user',
+
     # Built-In
     'django.contrib.admin',
     'django.contrib.auth',
@@ -23,10 +27,6 @@ INSTALLED_APPS = [
 
     # 3rd-party
     'debug_toolbar',
-
-    # Local
-    'movie',
-    'user',
 ]
 
 MIDDLEWARE = [
@@ -98,7 +98,6 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
@@ -109,7 +108,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_VIEW = 'movie:movie-list'
-LOGIN_REDIRECT_URL = 'user:login'
+LOGIN_REDIRECT_URL = 'movie:movie-list'
 
 INTERNAL_IPS = os.getenv('DJANGO_INTERNAL_IPS').split(' ')
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
