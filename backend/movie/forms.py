@@ -41,4 +41,3 @@ class MovieImageForm(forms.ModelForm):
     class Meta:
         model = MovieImage
         fields = ('image', 'user', 'movie')
-
