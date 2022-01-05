@@ -5,8 +5,8 @@
 __pycache__/
 *.sqlite3
 backend/media/
-static/
-staticfiles/
+backend/static/debug_toolbar/
+backend/static/admin/
 
 # Backup files #
 *.bak
